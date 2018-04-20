@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from "@angular/core";
 import { GitHubModel } from "../model/git-hub-model";
 
 @Component({
@@ -8,15 +8,9 @@ import { GitHubModel } from "../model/git-hub-model";
 })
 export class GitHubCardComponent implements OnInit, OnDestroy {
 
-    gitGubData: GitHubModel;
-
+    @Input('github-data') gitGubData: GitHubModel; // Comunicacion de padre a hijo. Agrega un nuevo atributo cuando se coloca dentro de los parentesis Ejem. @Input('test') test; 
     constructor() {
-        this.gitGubData = new GitHubModel();
-        this.gitGubData.avatar_url = 'https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg';
-        this.gitGubData.followers = 0;
-        this.gitGubData.following = 1;
-        this.gitGubData.login = 'jhontomoya';
-        this.gitGubData.name = 'Jonathan Zamora';
+       
     }
 
     ngOnInit() {
